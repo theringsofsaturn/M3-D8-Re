@@ -42,7 +42,7 @@
                     <div class="col-md-6">
                         <h1 class="mt-5 mb-4">Backoffice</h1>
                         <hr>
-                        <form onsubmit="productSubmit()" class="mb-5">
+                        <form onsubmit="productSubmit(event)" class="mb-5">
                             <div class="form-group">
                                 <label for="name">Product Name</label>
                                 <input id="name" type="text" class="form-control" aria-describedby="name">
@@ -82,6 +82,7 @@
     <script>
 
         const productSubmit = async (event) => {
+            event.preventDefault()
 
             const product = {
                 name: document.getElementById('name').value,
@@ -103,10 +104,10 @@
                     }
                 })
                 console.log("Response", response)
-
+                alert("You submited!")
 
             } catch (error) {
-
+                console.log(error);
             }
         }
 
