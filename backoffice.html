@@ -41,7 +41,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6">
                         <h1 class="mt-5 mb-4">Backoffice</h1>
-                        <form onsubmit="FUNCTION HERE" class="mb-5">
+                        <form onsubmit="productSubmit()" class="mb-5">
                             <div class="form-group">
                                 <label for="name">Product Name</label>
                                 <input id="name" type="text" class="form-control" aria-describedby="name">
@@ -94,6 +94,17 @@
 
 
             try {
+                const response = await fetch(apiUrl, {
+                    method: "POST",
+                    body: JSON.stringify(product),
+                    headers: {
+                        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YThiODE2ZWY2MDAwMTVjZWQwNTUiLCJpYXQiOjE2MzIzMTU3ODksImV4cCI6MTYzMzUyNTM4OX0.5DMyLDm1BhaVjrBNllHevG_JWKkIIT8o2np1ZpuHMFw",
+
+                        "Content-Type": "application/json",
+                    }
+                })
+                console.log("Response", response)
+
 
             } catch (error) {
 
@@ -113,7 +124,7 @@
                 })
                 console.log(response)
                 const data = await response.json()
-                console.log(data)
+                console.log("Data", data)
             } catch (err) {
                 console.log(err)
             }

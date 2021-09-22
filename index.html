@@ -40,7 +40,7 @@
             <div class="container">
                 <h1 class="mt-5 mb-4">Products</h1>
                 <div id="products" class="row">
-                    <!-- Product display -->
+                    <!-- Products -->
 
                 </div>
             </div>
@@ -55,8 +55,6 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
     <script>
-        // const apiToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YThiODE2ZWY2MDAwMTVjZWQwNTUiLCJpYXQiOjE2MzIzMTU3ODksImV4cCI6MTYzMzUyNTM4OX0.5DMyLDm1BhaVjrBNllHevG_JWKkIIT8o2np1ZpuHMFw"
-
 
         window.onload = async () => {
             try {
@@ -68,7 +66,7 @@
                 console.log(response);
 
                 const data = await response.json()
-                console.log("DATA", data);
+                console.log("Data", data);
 
                 const products = document.getElementById("products")
 
