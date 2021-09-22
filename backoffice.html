@@ -80,7 +80,19 @@
         crossorigin="anonymous"></script>
     <script>
 
-        const productSubmit = async () => {
+        const productSubmit = async (event) => {
+
+            event.preventDefault()
+
+            const product = {
+                name: document.getElementById('name').value,
+                description: document.getElementById('description').value,
+                brand: document.getElementById('brand').value,
+                imageUrl: document.getElementById('img-url').value,
+                price: document.getElementById('price').value
+            }
+
+
             try {
 
             } catch (error) {
