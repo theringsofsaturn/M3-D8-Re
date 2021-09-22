@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Strivazon</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Strivazon</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./backoffice.html">Backoffice</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h1 class="mt-5 mb-4">Backoffice</h1>
+                        <form onsubmit="FUNCTION HERE" class="mb-5">
+                            <div class="form-group">
+                                <label for="name">Product Name</label>
+                                <input id="name" type="text" class="form-control" aria-describedby="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Product Description</label>
+                                <textarea id="description" type="text" rows="6" class="form-control"
+                                    aria-describedby="description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="brand">Brand</label>
+                                <input id="brand" type="text" class="form-control" aria-describedby="brand">
+                            </div>
+                            <div class="form-group">
+                                <label for="img-url">Image URL</label>
+                                <input id="img-url" type="text" class="form-control" aria-describedby="img-url">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Product Price</label>
+                                <input id="price" type="number" class="form-control" aria-describedby="price">
+                            </div>
+                            <input type="submit" class="btn btn-primary my-3" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script>
+        window.onload = async () => {
+            const products = document.getElementById('products')
+
+            try {
+                const response = await fetch("https://striveschool-api.herokuapp.com/api/product/", {
+                    headers: {
+                        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YThiODE2ZWY2MDAwMTVjZWQwNTUiLCJpYXQiOjE2MzIzMTU3ODksImV4cCI6MTYzMzUyNTM4OX0.5DMyLDm1BhaVjrBNllHevG_JWKkIIT8o2np1ZpuHMFw",
+
+                        "Content-Type": "application/json",
+                    }
+                })
+                console.log(response)
+                const data = await response.json()
+                console.log(data)
+            } catch (err) {
+                console.log(err)
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
