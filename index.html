@@ -38,7 +38,7 @@
     <main>
         <div class="container-fluid">
             <div class="container">
-                <h1 class="mt-5 mb-4">Available Products</h1>
+                <h1 class="mt-5 mb-4">Products</h1>
                 <div id="products" class="row">
                     <!-- Product display -->
 
@@ -67,8 +67,26 @@
                 })
                 console.log(response);
 
-                const products = await response.json()
-                console.log("DATA", products);
+                const data = await response.json()
+                console.log("DATA", data);
+
+                const products = document.getElementById("products")
+
+                products.innerHTML = data.map(product => ` <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <div class="card h-100" >
+                            <img src=${data} class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">${data}</h5>
+                              <p class="card-text"> ${data}</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item d-flex">
+                                  <span><strong>${data}</strong></span>
+                                  <span class="badge badge-success ml-auto py-2">£ ${data}</span>
+                                </li>
+                            </ul>
+                          </div>
+                    </div>`)
 
             } catch (error) {
                 console.log(error);
