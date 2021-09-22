@@ -75,14 +75,14 @@
                 data.forEach(product => {
                     products.innerHTML += ` <div class="col-12 col-sm-6 col-md-4 mb-4">
                         <div class="card h-100" >
-                            <img src=${data.imageUrl} class="card-img-top" alt="...">
+                            <img src=${product.imageUrl} class="card-img-top" alt="...">
                             <div class="card-body">
-                              <h5 class="card-title">${data.name}</h5>
-                              <p class="card-text"> ${data.description}</p>
+                              <h5 class="card-title">${product.name}</h5>
+                              <p class="card-text"> ${product.description}</p>
                             </div>
                             <ul class="list-group list-group-flush">
                               <li class="list-group-item d-flex">
-                                  <span><strong>${data.brand}</strong></span>
+                                  <span><strong>${product.brand}</strong></span>
                                   <span class="badge badge-success ml-auto py-2">£ ${data}</span>
                                 </li>
                             </ul>
